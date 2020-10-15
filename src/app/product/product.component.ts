@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Product } from '../models/Product';
 import { ProductStatus } from '../models/ProductStatus';
 
+import { PRODUCTS } from "../models/mockProduct";
+
 
 @Component({
   selector: 'app-product',
@@ -9,6 +11,8 @@ import { ProductStatus } from '../models/ProductStatus';
   styleUrls: ['./product.component.css']
 })
 export class ProductComponent implements OnInit {
+
+  products = PRODUCTS;
 
   product: Product = {
     id: 1,
