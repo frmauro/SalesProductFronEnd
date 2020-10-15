@@ -13,6 +13,10 @@ import { PRODUCTS } from "../models/mockProduct";
 export class ProductComponent implements OnInit {
 
   products = PRODUCTS;
+  selectedProduct: Product;
+  onSelect(product: Product): void{
+    this.selectedProduct = product;
+  }
 
   product: Product = {
     id: 1,
