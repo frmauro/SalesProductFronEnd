@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Product } from '../models/Product';
 import { ProductStatus } from '../models/ProductStatus';
 
-import { PRODUCTS } from "../models/mockProduct";
+import { ProductService } from "../product.service";
 
 
 @Component({
@@ -12,7 +12,8 @@ import { PRODUCTS } from "../models/mockProduct";
 })
 export class ProductComponent implements OnInit {
 
-  products = PRODUCTS;
+  products : Product[];
+
   selectedProduct: Product;
   onSelect(product: Product): void{
     this.selectedProduct = product;
@@ -26,9 +27,15 @@ export class ProductComponent implements OnInit {
     status: ProductStatus.Active
   }
 
-  constructor() { }
+  constructor(private productService: ProductService) { }
 
-  ngOnInit(): void {
-  }
+    ngOnInit(): void {
+      this.getProducts();
+    }
+
+    getProducts(): void{
+      this.productService.getProducts()
+          .subscribe(products => this.products = products);
+    }
 
 }
