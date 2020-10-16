@@ -3,6 +3,7 @@ import { Product } from '../models/Product';
 import { ProductStatus } from '../models/ProductStatus';
 
 import { ProductService } from "../product.service";
+import { MessageService } from "../message.service";
 
 
 @Component({
@@ -13,11 +14,7 @@ import { ProductService } from "../product.service";
 export class ProductComponent implements OnInit {
 
   products : Product[];
-
   selectedProduct: Product;
-  onSelect(product: Product): void{
-    this.selectedProduct = product;
-  }
 
   product: Product = {
     id: 1,
@@ -27,10 +24,18 @@ export class ProductComponent implements OnInit {
     status: ProductStatus.Active
   }
 
-  constructor(private productService: ProductService) { }
+  constructor(
+    private messageService: MessageService, 
+    private productService: ProductService
+    ) { }
 
     ngOnInit(): void {
       this.getProducts();
+    }
+
+    onSelect(product: Product): void {
+      this.selectedProduct = this.product;
+      this.messageService.add(`ProductsComponent: Selected product id=${product.id}`);
     }
 
     getProducts(): void{
