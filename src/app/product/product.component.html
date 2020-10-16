@@ -1,12 +1,3 @@
-<div *ngIf="selectedProduct">
-    <h2>{{selectedProduct.description | uppercase}} Details</h2>
-    <div><span>id: </span>{{selectedProduct.id}}</div>
-    <div>
-    <label>name:
-        <input [(ngModel)]="selectedProduct.name" placeholder="description"/>
-    </label>
-    </div>
-</div>
 
 <h2>Products</h2>
 <ul class="products">
@@ -18,3 +9,4 @@
 </ul>
 
 
+<app-product-detail [product]="selectedProduct"></app-product-detail>
