@@ -14,16 +14,7 @@ import { MessageService } from "../message.service";
 export class ProductComponent implements OnInit {
 
   products : Product[];
-  selectedProduct: Product;
-
-  product: Product = {
-    id: 1,
-    description: 'Product 001',
-    amount: '90',
-    price: '75',
-    status: ProductStatus.Active
-  }
-
+    
   constructor(
     private messageService: MessageService, 
     private productService: ProductService
@@ -31,11 +22,6 @@ export class ProductComponent implements OnInit {
 
     ngOnInit(): void {
       this.getProducts();
-    }
-
-    onSelect(product: Product): void {
-      this.selectedProduct = this.product;
-      this.messageService.add(`ProductsComponent: Selected product id=${product.id}`);
     }
 
     getProducts(): void{

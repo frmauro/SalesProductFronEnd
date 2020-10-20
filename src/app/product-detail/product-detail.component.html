@@ -2,8 +2,9 @@
     <h2>{{product.description | uppercase}} Details</h2>
     <div><span>id: </span>{{product.id}}</div>
     <div>
-    <label>name:
+    <label>description:
         <input [(ngModel)]="product.description" placeholder="description"/>
     </label>
     </div>
+    <button (click)="goBack()">go back</button>
 </div>
