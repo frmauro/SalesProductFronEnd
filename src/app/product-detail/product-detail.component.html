@@ -12,6 +12,10 @@
     <label>price:
         <input [(ngModel)]="product.price" placeholder="price"/>
     </label>
+    <labe>Status:</labe>
+    <select name="status">
+        <option *ngFor="let item of status.values();" [value]="item">{{item}}</option>
+    </select>
     <button (click)="goBack()">go back</button>
     <button (click)="save()">save</button>
 </div>

@@ -3,7 +3,9 @@ import { ActivatedRoute } from "@angular/router";
 import { Location } from "@angular/common";
 
 import { Product } from "../models/Product";
+import { ProductStatus } from "../models/ProductStatus";
 import { ProductService } from "../product.service";
+
 
 @Component({
   selector: 'app-product-detail',
@@ -13,7 +15,8 @@ import { ProductService } from "../product.service";
 export class ProductDetailComponent implements OnInit {
 
   @Input() product: Product;  
-
+  status = ProductStatus;
+  
   constructor(
     private route: ActivatedRoute,
     private productService: ProductService,
