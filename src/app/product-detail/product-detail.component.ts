@@ -29,6 +29,11 @@ export class ProductDetailComponent implements OnInit {
     this.productService.getProduct(id).subscribe(product => this.product = product);
   }
 
+  save(): void {
+    this.productService.updateProduct(this.product)
+      .subscribe(() => this.goBack());
+  }
+
   goBack(): void {
     this.location.back();
   }

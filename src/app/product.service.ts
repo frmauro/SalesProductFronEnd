@@ -13,6 +13,10 @@ import { MessageService } from "./message.service";
 })
 export class ProductService {
 
+  httpOptions = {
+    headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+  };
+
   private productsUrl = 'http://localhost:8087/Product';  // URL to web api
 
   constructor(
@@ -39,6 +43,14 @@ export class ProductService {
       tap(_ => this.log(`fetched product id=${id}`)),
       catchError(this.handleError<Product>(`getProduct id=${id}`))
      );
+  }
+
+  /** PUT: update the product on the server */
+  updateProduct(product: Product): Observable<any> {
+    return this.http.put(this.productsUrl, product, this.httpOptions).pipe(
+      tap(_ => this.log(`updated product id=${product.id}`)),
+      catchError(this.handleError<any>('updateProduct'))
+    );
   }
 
   /** Log a ProductService message with the MessageService */
