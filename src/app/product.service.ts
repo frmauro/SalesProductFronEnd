@@ -54,6 +54,14 @@ export class ProductService {
     );
   }
 
+  /** POST: add a new product to the server */
+addProduct(product: Product): Observable<Product> {
+  return this.http.post<Product>(this.productsUrl, product, this.httpOptions).pipe(
+    tap((newProduct: Product) => this.log(`added product w/ id=${product.id}`)),
+    catchError(this.handleError<Product>('addProduct'))
+  );
+}
+
   /** Log a ProductService message with the MessageService */
   private log(message: string) {
     this.messageService.add(`productService: ${message}`);

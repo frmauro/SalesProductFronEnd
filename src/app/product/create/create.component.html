@@ -1,19 +1,19 @@
-<h2>{{product.description | uppercase}} Details</h2>
-    <div><span>id: </span>{{product.id}}</div>
-    <div>
+<h2>Create</h2>
+<div><span>id: </span>{{product.id}}</div>
+<div>
     <label>description:
-        <input [(ngModel)]="product.description" placeholder="description"/>
+        <input [(ngModel)]="product.description" placeholder="description" />
     </label>
-    </div>
-    <label>amount:
-        <input [(ngModel)]="product.amount" placeholder="amount"/>
-    </label>
-    <label>price:
-        <input [(ngModel)]="product.price" placeholder="price"/>
-    </label>
-    <label>Status:</label>
-    <select name="status">
-        <option *ngFor="let item of status.values();" [value]="item">{{item}}</option>
-    </select>
-    <!-- <button (click)="goBack()">go back</button>
-    <button (click)="save()">save</button> -->
+</div>
+<label>amount:
+    <input [(ngModel)]="product.amount" placeholder="amount" />
+</label>
+<label>price:
+    <input [(ngModel)]="product.price" placeholder="price" />
+</label>
+<label>Status:</label>
+<select name="status" [(ngModel)]="product.status">
+    <option *ngFor="let item of status.values();"  [value]="item">{{item}}</option>
+</select>
+<button (click)="goBack()">go back</button>
+<button (click)="save()">save</button>

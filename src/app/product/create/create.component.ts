@@ -28,6 +28,14 @@ export class CreateComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  save(): void {
+    //console.log(this.product);
+
+    this.product.amount = Number(this.product.amount);
+    this.productService.addProduct(this.product).subscribe(() => this.goBack());
+  }
+
+
   goBack(): void {
     this.location.back();
   }
