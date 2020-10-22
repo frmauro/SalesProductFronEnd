@@ -33,8 +33,9 @@ export class ProductDetailComponent implements OnInit {
   }
 
   save(): void {
-    this.productService.updateProduct(this.product)
-      .subscribe(() => this.goBack());
+    //console.log(this.product);
+    this.product.amount = Number(this.product.amount);
+    this.productService.updateProduct(this.product).subscribe(() => this.goBack());
   }
 
   goBack(): void {
