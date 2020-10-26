@@ -5,6 +5,10 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 ## Command create docker image
 docker build --tag salesproductfrontend .
 
+## Command create docker container
+docker run --name salesproductfrentend -d -p 8085:80 --link salesproductapi salesproductfrontend
+
+
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
