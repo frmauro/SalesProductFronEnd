@@ -19,7 +19,8 @@ export class ProductService {
 
   //private productsUrl = 'http://localhost:8087/Product';  // URL to web api
   //private productsUrl = 'http://192.168.49.2:31003/product';  // URL to web api in local Kubernetes
-  private productsUrl = 'http://192.168.49.2/product';  // URL to web api in local Kubernetes
+  //private productsUrl = 'http://192.168.49.2/product';  // URL to web api in local Kubernetes
+  private productsUrl = 'http://localhost/product';  // URL to web api in local Kubernetes
 
 
   constructor(
