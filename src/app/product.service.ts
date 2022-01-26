@@ -17,10 +17,11 @@ export class ProductService {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
   };
 
+  private productsUrl = 'http://localhost:5158/';  // URL to web api
   //private productsUrl = 'http://localhost:8087/Product';  // URL to web api
   //private productsUrl = 'http://192.168.49.2:31003/product';  // URL to web api in local Kubernetes
   //private productsUrl = 'http://192.168.49.2/product';  // URL to web api in local Kubernetes
-  private productsUrl = 'http://localhost/product';  // URL to web api in local Kubernetes
+  //private productsUrl = 'http://localhost/product';  // URL to web api in local Kubernetes
 
 
   constructor(
@@ -31,7 +32,8 @@ export class ProductService {
     // TODO: send the message _after_ fetching the products
     //this.messageService.add('ProductService: fetched products');
     //return of(PRODUCTS);
-    return this.http.get<Product[]>(this.productsUrl)
+    let urlfull = this.productsUrl+"getAllProduct";
+    return this.http.get<Product[]>(urlfull)
     .pipe(
       tap(_ => this.log('fetched products')),
       catchError(this.handleError<Product[]>('getProducts', []))
@@ -42,7 +44,7 @@ export class ProductService {
     // TODO: send the message _after_ fetching the product id
     //this.messageService.add(`ProductService: fetched product id=${id}`);
      //return of(PRODUCTS.find(product => product.id === id));
-     const url = `${this.productsUrl}/${id}`;
+     const url = `${this.productsUrl}GetProductById/${id}`;
      return this.http.get<Product>(url).pipe(
       tap(_ => this.log(`fetched product id=${id}`)),
       catchError(this.handleError<Product>(`getProduct id=${id}`))
@@ -51,8 +53,9 @@ export class ProductService {
 
   /** PUT: update the product on the server */
   updateProduct(product: Product): Observable<any> {
-    console.log(product);
-    return this.http.put(this.productsUrl, product, this.httpOptions).pipe(
+    //console.log(product);
+    const url = `${this.productsUrl}UpdateProduct`;
+    return this.http.put(url, product, this.httpOptions).pipe(
       tap(_ => this.log(`updated product id=${product.id}`)),
       catchError(this.handleError<any>('updateProduct'))
     );
@@ -60,7 +63,8 @@ export class ProductService {
 
   /** POST: add a new product to the server */
 addProduct(product: Product): Observable<Product> {
-  return this.http.post<Product>(this.productsUrl, product, this.httpOptions).pipe(
+  const url = `${this.productsUrl}CreateProduct`;
+  return this.http.post<Product>(url, product, this.httpOptions).pipe(
     tap((newProduct: Product) => this.log(`added product w/ id=${product.id}`)),
     catchError(this.handleError<Product>('addProduct'))
   );
