@@ -17,11 +17,12 @@ export class ProductService {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
   };
 
-  private productsUrl = 'http://localhost:5158/';  // URL to web api
+  //private productsUrl = 'http://localhost:5158/';  // URL to web api
   //private productsUrl = 'http://localhost:8087/Product';  // URL to web api
   //private productsUrl = 'http://192.168.49.2:31003/product';  // URL to web api in local Kubernetes
   //private productsUrl = 'http://192.168.49.2/product';  // URL to web api in local Kubernetes
   //private productsUrl = 'http://localhost/product';  // URL to web api in local Kubernetes
+  private productsUrl = 'http://salesorder.com/';  // URL to web api in local Kubernetes using redirect to apigetway
 
 
   constructor(
