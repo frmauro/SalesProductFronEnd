@@ -6,7 +6,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 docker build --tag salesproductfrontend .
 
 ## Command create docker container
-docker run --name salesproductfrentend -d -p 8085:80 --link salesproductapi salesproductfrontend
+docker run --name salesproductfrontend -d -p 8085:80 --link salesproductapi salesproductfrontend
 
 
 ## Development server

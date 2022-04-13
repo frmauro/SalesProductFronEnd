@@ -22,7 +22,8 @@ export class ProductService {
   //private productsUrl = 'http://192.168.49.2:31003/product';  // URL to web api in local Kubernetes
   //private productsUrl = 'http://192.168.49.2/product';  // URL to web api in local Kubernetes
   //private productsUrl = 'http://localhost/product';  // URL to web api in local Kubernetes
-  private productsUrl = 'http://salesorder.com/';  // URL to web api in local Kubernetes using redirect to apigetway
+  //private productsUrl = 'http://salesorder.com/';  // URL to web api in local Kubernetes using redirect to apigetway
+  private productsUrl = 'http://localhost:5000/';  // URL to web api in TEST enviroment using redirect to apigetway
 
 
   constructor(
